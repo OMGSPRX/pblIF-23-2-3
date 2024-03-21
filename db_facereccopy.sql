@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 21, 2024 at 04:54 AM
--- Server version: 10.4.28-MariaDB
--- PHP Version: 8.0.28
+-- Generation Time: Dec 19, 2023 at 11:53 PM
+-- Server version: 10.4.27-MariaDB
+-- PHP Version: 8.1.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -33,6 +33,14 @@ CREATE TABLE `kehadiran` (
   `created` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `kehadiran`
+--
+
+INSERT INTO `kehadiran` (`id`, `id_realtime`, `created`) VALUES
+(1, 35, '2023-12-18 20:19:29'),
+(3, 37, '2023-12-19 19:26:06');
+
 -- --------------------------------------------------------
 
 --
@@ -50,6 +58,14 @@ CREATE TABLE `realtime` (
   `status` varchar(20) NOT NULL,
   `created` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `realtime`
+--
+
+INSERT INTO `realtime` (`id`, `id_user`, `xAxis`, `yAxis`, `width`, `height`, `conf`, `status`, `created`) VALUES
+(35, 11, 234, 134, 34, 70, 0.87, 'Detected (Hadir)', '2023-12-18 20:07:01'),
+(37, 12, 234, 134, 27, 110, 0.87, 'Detected (Hadir)', '2023-12-19 19:21:09');
 
 -- --------------------------------------------------------
 
@@ -70,7 +86,8 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `nama`, `username`, `password`, `created`) VALUES
-(13, 'andrew', 'andreprasasti10@gmail.com', '$5$rounds=535000$LXeVK/anzk4IpQHb$54yBAckQl7hU0.DfJlQpo1hGDpZp/7pGZwbyD9miEp2', '2024-03-13 21:24:34');
+(11, 'Marco Philips Sirait', 'marcophilips73@gmail.com', '$5$rounds=535000$QvkLPoSGSuRdjYs/$sqOp1G8oghxymSRpqlIkiGujbeEY89vovinNg83Z4H5', '2023-12-19 06:32:44'),
+(12, 'Iqbal Dufriandes', 'idufriandes205@gmail.com', '$5$rounds=535000$ieTBkNP49KLk9nz9$999WTWaOyydxXbo20ZrhBfLDVr3hUXDIrP2bSCFM3/A', '2023-12-20 01:16:31');
 
 --
 -- Indexes for dumped tables
@@ -116,7 +133,7 @@ ALTER TABLE `realtime`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- Constraints for dumped tables
